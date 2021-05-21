@@ -1,0 +1,23 @@
+name: "Mys"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 16 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Run sign
+        run: |
+          pip install requests==2.20.0
+          echo "${{ secrets.COOKIE }}" | tr '#' "\n" | xargs -I {} sh -c 'echo "{}" | python3 ./AutoClockin.py'
