@@ -23,7 +23,7 @@ class ConfMeta(type):
 
   @property
   def app_version(self):
-    return '2.3.0'
+    return '2.34.1'
 
   @property
   def ua(self):
@@ -128,7 +128,7 @@ class Sign(object):
 
   def get_DS(self):
     # n = self.md5(Conf.app_version)
-    n = "h8w582wxwgqvahcdkpvdhbh2w9casgfl"
+    n = "9nQiU3AV0rJSIBWgdynfoGMGKaklfbM7"
     i = str(int(time.time()))
     r = ''.join(random.sample(string.ascii_lowercase + string.digits, 6))
     c = self.md5("salt=" + n + "&t="+ i + "&r=" + r)
@@ -186,7 +186,7 @@ if __name__ == "__main__":
   ret = -1
 
   logging.info('Sleep for %s seconds ...' %(seconds))
-  time.sleep(seconds)
+  # time.sleep(seconds)
 
   try:
     jdict = Sign(input().strip()).run()
