@@ -68,4 +68,4 @@ if __name__ == "__main__":
     for i in range(0, n):
         helper = CheckIn(username_list[i], password_list[i])
         helper.check_in()
-        logging.info(helper.email_masking()+"签到完成")
+        logging.info(helper.masked_username+"签到完成")
