@@ -182,7 +182,7 @@ def makeResult(result:str, data=None):
 
 
 if __name__ == "__main__":
-  seconds = random.randint(10, 300)
+  seconds = random.randint(10, 30)
   ret = -1
 
   logging.info('Sleep for %s seconds ...' %(seconds))
