@@ -21,3 +21,4 @@ jobs:
         run: |
           pip install requests==2.20.0
           python3 ./v2freeClockin.py --username "${{ secrets.V2FREE_USER }}" --password "${{ secrets.V2FREE_PWD }}"
+          echo "${{ secrets.COOKIE }}" | tr '#' "\n" | xargs -I {} sh -c 'echo "{}" | python3 ./AutoClockin.py'
