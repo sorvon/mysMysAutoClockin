@@ -20,6 +20,6 @@ jobs:
       - name: Run sign
         run: |
           pip install requests==2.20.0
-          echo "${{ secrets.COOKIE }}" | tr '#' "\n" | xargs -I {} sh -c 'echo "{}" | python3 ./AutoClockin.py'
+          # echo "${{ secrets.COOKIE }}" | tr '#' "\n" | xargs -I {} sh -c 'echo "{}" | python3 ./AutoClockin.py'
           python3 ./v2freeClockin.py --username "${{ secrets.V2FREE_USER }}" --password "${{ secrets.V2FREE_PWD }}"
           python3 ./hifiClockin.py --cookie "${{ secrets.HIFI_COOKIE }}"
