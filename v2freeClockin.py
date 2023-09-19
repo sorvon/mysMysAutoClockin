@@ -47,8 +47,10 @@ class CheckIn(object):
             "Referer": "https://w1.v2free.net/user",
         }
         response = self.client.post(self.sign_url, headers=headers)
-
-        logging.info(self.masked_username + "\t" + response.json()["msg"])
+        if(response.status_code != 200):
+            logging.error(self.masked_username + "\t" + str(response.status_code))
+        else:
+            logging.info(self.masked_username + "\t" + str(response.status_code))
 
 
 if __name__ == "__main__":
